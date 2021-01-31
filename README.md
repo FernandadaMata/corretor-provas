@@ -1,6 +1,7 @@
 # corretor-provas
 Meu primeiro repositório no GitHub!
 
+
 def cadastro_alunos(): #Função para cadastrar o total de alunos
     n = int(input('Quantos alunos terão a provas corrigida? '))
     for x in range(n): #De acordo com a quantidade informada o loop será executado
@@ -10,8 +11,9 @@ def cadastro_alunos(): #Função para cadastrar o total de alunos
             resp = input("Resposta Questão {}: ".format(i))
             gabarito.append(resp) #Grava as respostas na lista gabarito
         for i in range(len(provas)): #Conforme o tamanho da lista provas, compara as respostas dos alunos com o gabarito da prova
-            if gabarito[i] == provas[i]:
-                nota += 1 #A cada vez que o gabarito retorna igualdade soma 1 ponto na nota
+            if gabarito[i] == provas[i]: #A cada vez que o gabarito retorna igualdade soma 1 ponto na nota
+                nota += 1
+
         principal.append({"nome": nome, "nota": nota}) # Grava o nome e a nota do aluno na lista principal
         
 
@@ -25,6 +27,8 @@ def lista_aprovados(): #Função que apresenta os alunos aprovados
         if (principal[i]["nota"]) >= 7:
             print("ALUNO: {} ".format(principal[i]["nome"].ljust(8)))
 
+
+
 gabarito = []
 principal = []
 
@@ -33,10 +37,11 @@ principal = []
 print('Cadastre o gabarito da disciplina que deseja corrigir: ')
 provas = list()
 for i in range (1,11):
-    resp = str(input("Questão {}: ".format(i)))
+    resp = input("Questão {}: ".format(i))
     provas.append(resp)
 print('Agora faça o cadastro do gabarito dos alunos.')
 cadastro_alunos()
+print('-='*15)
 print('As notas de cada aluno são: ')
 verifica_nota()
 print('-='*15)
